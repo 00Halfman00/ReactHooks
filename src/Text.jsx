@@ -14,6 +14,7 @@ const Text = () => {
       <br></br>
       {text}
       <br></br>
+      <br></br>
     </div>
   );
 };

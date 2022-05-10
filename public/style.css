@@ -37,6 +37,7 @@
 }
 
 .reduce-text-div {
+  background-color: greenyellow;
   display: flex;
   flex-direction: column;
   align-items: center;

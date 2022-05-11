@@ -52,18 +52,21 @@ const reducer = (state, action) => {
     case 'INCREMENT':
       return {
         counter: state.counter + 1,
+        num: state.num,
         text: state.text
       };
 
     case 'DECREMENT':
       return {
         counter: state.counter - 1,
+        num: state.num,
         text: state.text
       };
 
     case 'ADDTEXT':
       const obj = {
         counter: state.counter,
+        num: state.num,
         text: state.text + str
       };
       str = '';
@@ -77,6 +80,7 @@ const reducer = (state, action) => {
 const ReduceCounterText = () => {
   const [state, dispatch] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useReducer)(reducer, {
     counter: 0,
+    num: 10,
     text: ''
   });
 
@@ -88,6 +92,12 @@ const ReduceCounterText = () => {
     });
   };
 
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    console.log(state);
+    dispatch({
+      type: 'INCREMENT'
+    });
+  }, [state.text]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "reduce-div"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -104,7 +114,7 @@ const ReduceCounterText = () => {
     className: "reduce-text-div"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     onChange: changeText
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), state.text, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null)));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), state.text, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, state.num)));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReduceCounterText);
@@ -138,7 +148,7 @@ const Text = () => {
     className: "text-div"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Input text:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     onChange: changeText
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), text, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), text, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Text);

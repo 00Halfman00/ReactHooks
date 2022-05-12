@@ -1,30 +1,30 @@
 // useState hook example with Text
 import React, { useState, useRef } from 'react';
 
-const Text_useState = () => {
-
+const Text_useState_useRef = () => {
   const [text, setText] = useState('');
   const inputRef = useRef(null);
 
   const submitAndClear = () => {
-    if(inputRef.current.value[1]){
+    if (inputRef.current.value[1]) {
       setText(text + inputRef.current.value + ' ');
       inputRef.current.value = '';
     }
-    console.log('text: ', text)
-  }
+    console.log('text: ', text);
+  };
   return (
     <div className="text-div">
-      <h3>Input text:</h3>
-      <input ref={inputRef}/>
-      <button onClick={submitAndClear}>clear</button>
+      <h4>Text_useState_useRef </h4>
       <br></br>
+      {text}
+      <input ref={inputRef} />
       <br></br>
+      <button onClick={submitAndClear}>clear input field</button>
+      <br></br>
+      <button onClick={() => setText('')}>clear text</button>
       <br></br>
     </div>
   );
 };
 
-export default Text_useState;
-
-//onChange={changeText}
+export default Text_useState_useRef;

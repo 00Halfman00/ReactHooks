@@ -79,6 +79,7 @@ const Counter_Text_Reduce_useEffect = () => {
 
   return (
     <div className="reduce-div">
+      <h4>Counter_Text_Reduce_useEffect</h4>
       <div className="reduce-button-div">
         <button onClick={() => dispatch({ type: 'INCREMENT_COUNTER' })}>
           Increment
@@ -89,7 +90,6 @@ const Counter_Text_Reduce_useEffect = () => {
       </div>
       <br></br>
       Counter: {state.counter}
-      <br></br>
       <br></br>
       <div className="reduce-text-div">
         <br></br>
@@ -103,7 +103,9 @@ const Counter_Text_Reduce_useEffect = () => {
         <br></br>
       </div>
       <div className='reduce-num-div'>
+        <div>
         <h3>Num: {state.num}</h3>
+        </div>
       </div>
     </div>
   );

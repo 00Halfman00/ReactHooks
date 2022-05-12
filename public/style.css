@@ -1,17 +1,22 @@
 #root {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   background-color: darkorchid;
 
 }
 
 .app-div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   background: lightslategray;
   padding: 1rem;
 }
 
 .counter-div {
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,6 +24,7 @@
 }
 
 .text-div {
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,6 +32,7 @@
 }
 
 .reduce-div {
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +44,6 @@
 }
 
 .reduce-text-div {
-  background-color: greenyellow;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,6 +51,26 @@
 }
 
 .reduce-num-div {
-  background: yellow;
+  display: flex;
+  justify-content: center;
   width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .app-div {
+    background-color: lightgreen;
+    flex-direction: column;
+  }
+  h4, h1{
+    font-family: fantasy;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    background-color: black;
+  }
+  h1 {
+    color: white;
+  }
 }

@@ -6,8 +6,8 @@ const Counter_useState = () => {
 
   return (
     <div className="counter-div">
+      <h4>Counter_useState</h4>
       {counter}
-      <br></br>
       <br></br>
       <button className="inc-button" onClick={() => setCounter(counter + 1)}>
         increment

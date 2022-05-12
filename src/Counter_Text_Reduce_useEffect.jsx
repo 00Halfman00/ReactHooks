@@ -63,11 +63,12 @@ const Counter_Text_Reduce_useEffect = () => {
   const changeText = function (event) {
     event.target.attributes[0].value = '';
     str += event.target.value;
-    event.target.value = '';
+    //event.target.value = '';
     dispatch({ type: 'ADD_TEXT' });
   };
 
-  useEffect(() => {
+  useEffect((val) => {
+    //console.log('val: ', val);
     if (state.flag === true) {
       dispatch({ type: 'INCREASE_NUM' });
     }

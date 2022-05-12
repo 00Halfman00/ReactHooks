@@ -84,14 +84,15 @@ const Counter_Text_Reduce_useEffect = () => {
 
   const changeText = function (event) {
     event.target.attributes[0].value = '';
-    str += event.target.value;
-    event.target.value = '';
+    str += event.target.value; //event.target.value = '';
+
     dispatch({
       type: 'ADD_TEXT'
     });
   };
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(val => {
+    //console.log('val: ', val);
     if (state.flag === true) {
       dispatch({
         type: 'INCREASE_NUM'
@@ -164,10 +165,10 @@ const Counter_useState = () => {
 
 /***/ }),
 
-/***/ "./src/Text_useState.jsx":
-/*!*******************************!*\
-  !*** ./src/Text_useState.jsx ***!
-  \*******************************/
+/***/ "./src/Text_useState_useRef.jsx":
+/*!**************************************!*\
+  !*** ./src/Text_useState_useRef.jsx ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -181,20 +182,27 @@ __webpack_require__.r(__webpack_exports__);
 
 const Text_useState = () => {
   const [text, setText] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const inputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
-  const changeText = event => {
-    setText(text + event.target.value);
-    event.target.value = '';
+  const submitAndClear = () => {
+    if (inputRef.current.value[1]) {
+      setText(text + inputRef.current.value + ' ');
+      inputRef.current.value = '';
+    }
+
+    console.log('text: ', text);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "text-div"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Input text:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    onChange: changeText
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), text, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null));
+    ref: inputRef
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    onClick: submitAndClear
+  }, "clear"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Text_useState);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Text_useState); //onChange={changeText}
 
 /***/ }),
 
@@ -33561,7 +33569,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _Counter_useState_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Counter_useState.jsx */ "./src/Counter_useState.jsx");
-/* harmony import */ var _Text_useState_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Text_useState.jsx */ "./src/Text_useState.jsx");
+/* harmony import */ var _Text_useState_useRef_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Text_useState_useRef.jsx */ "./src/Text_useState_useRef.jsx");
 /* harmony import */ var _Counter_Text_Reduce_useEffect_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Counter_Text_Reduce_useEffect.jsx */ "./src/Counter_Text_Reduce_useEffect.jsx");
 
 
@@ -33573,7 +33581,7 @@ const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(docume
 const App = () => {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "app-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Counter_useState_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Text_useState_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Counter_Text_Reduce_useEffect_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Counter_useState_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Text_useState_useRef_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Counter_Text_Reduce_useEffect_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 };
 
 root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(App, null));

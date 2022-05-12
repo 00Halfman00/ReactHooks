@@ -1,7 +1,8 @@
 // useState hook example with Text
 import React, { useState } from 'react';
 
-const Text = () => {
+const Text_useState = () => {
+
   const [text, setText] = useState('');
   const changeText = (event) => {
     setText(text + event.target.value);
@@ -19,4 +20,4 @@ const Text = () => {
   );
 };
 
-export default Text;
+export default Text_useState;

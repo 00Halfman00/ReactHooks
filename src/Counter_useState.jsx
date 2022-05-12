@@ -1,7 +1,7 @@
 // useState hook example with Counter
 import React, { useState } from 'react';
 
-const Counter = () => {
+const Counter_useState = () => {
   const [counter, setCounter] = useState(0); // create a state variable(first element) initiated as 0, second element is function to change state
 
   return (
@@ -17,4 +17,4 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+export default Counter_useState;

@@ -1,7 +1,10 @@
 // useState hook example with Text
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
+import {userContext} from './index.jsx';
+
 
 const Text_useState_useRef = () => {
+  const {user} = useContext(userContext);
   const [text, setText] = useState('');
   const inputRef = useRef(null);
 
@@ -15,7 +18,7 @@ const Text_useState_useRef = () => {
   return (
     <div className="text-div">
       <h4>Text_useState_useRef </h4>
-      <br></br>
+      <h5>{user}</h5>
       {text}
       <input ref={inputRef} />
       <br></br>

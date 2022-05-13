@@ -9,9 +9,20 @@ const Counter_useState = () => {
       <h4>Counter_useState</h4>
       {counter}
       <br></br>
-      <button className="inc-button" onClick={() => setCounter(counter + 1)}>
-        increment
-      </button>
+      <div className="counter-button-div">
+        <button
+          className="inc-button"
+          onClick={() => setCounter((prevC) => prevC - 1)}
+        >
+          decrement
+        </button>
+        <button
+          className="inc-button"
+          onClick={() => setCounter((prevC) => prevC + 1)}
+        >
+          increment
+        </button>
+      </div>
       <br></br>
     </div>
   );

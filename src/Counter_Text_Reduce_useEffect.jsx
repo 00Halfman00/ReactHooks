@@ -35,7 +35,7 @@ const reducer = (state, action) => {
       const obj = {
         counter: state.counter,
         num: state.num,
-        text: state.text + str,
+        text: str,
         flag: state.flag,
       };
       str = '';
@@ -67,8 +67,7 @@ const Counter_Text_Reduce_useEffect = () => {
     dispatch({ type: 'ADD_TEXT' });
   };
 
-  useEffect((val) => {
-    //console.log('val: ', val);
+  useEffect(() => {
     if (state.flag === true) {
       dispatch({ type: 'INCREASE_NUM' });
     }
@@ -81,11 +80,11 @@ const Counter_Text_Reduce_useEffect = () => {
     <div className="reduce-div">
       <h4>Counter_Text_Reduce_useEffect</h4>
       <div className="reduce-button-div">
-        <button onClick={() => dispatch({ type: 'INCREMENT_COUNTER' })}>
-          Increment
-        </button>
         <button onClick={() => dispatch({ type: 'DECREMENT_COUNTER' })}>
           Decrement
+        </button>
+        <button onClick={() => dispatch({ type: 'INCREMENT_COUNTER' })}>
+          Increment
         </button>
       </div>
       <br></br>

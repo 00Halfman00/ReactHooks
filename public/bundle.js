@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/Counter_Text_Reduce_useEffect.jsx":
-/*!***********************************************!*\
-  !*** ./src/Counter_Text_Reduce_useEffect.jsx ***!
-  \***********************************************/
+/***/ "./src/Counter.jsx":
+/*!*************************!*\
+  !*** ./src/Counter.jsx ***!
+  \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -14,6 +14,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _index_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.jsx */ "./src/index.jsx");
+
+
+
+const Counter = () => {
+  const [counter, setCounter] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0); // create a state variable(first element) initiated as 0, second element is function to change state
+
+  const {
+    user
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_index_jsx__WEBPACK_IMPORTED_MODULE_1__.userContext);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "counter-div"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Counter"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Counter_useState_useContext"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "user: ", user), counter, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "counter-button-div"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "inc-button",
+    onClick: () => setCounter(prevC => prevC - 1)
+  }, "decrement"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "inc-button",
+    onClick: () => setCounter(prevC => prevC + 1)
+  }, "increment")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Counter);
+
+/***/ }),
+
+/***/ "./src/CounterTextReduce.jsx":
+/*!***********************************!*\
+  !*** ./src/CounterTextReduce.jsx ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _index_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.jsx */ "./src/index.jsx");
+
 
 let str = '';
 
@@ -74,7 +115,10 @@ const reducer = (state, action) => {
   }
 };
 
-const Counter_Text_Reduce_useEffect = () => {
+const CounterTextReduce = () => {
+  const {
+    user
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_index_jsx__WEBPACK_IMPORTED_MODULE_1__.userContext);
   const [state, dispatch] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useReducer)(reducer, {
     counter: 0,
     num: 0,
@@ -106,7 +150,7 @@ const Counter_Text_Reduce_useEffect = () => {
   }, [state.counter]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "reduce-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Counter_Text_Reduce_useEffect"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "CounterTextReduce"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "useReducer_useEffect_useContext"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "user: ", user), "Counter: ", state.counter, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "reduce-button-div"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     onClick: () => dispatch({
@@ -116,9 +160,9 @@ const Counter_Text_Reduce_useEffect = () => {
     onClick: () => dispatch({
       type: 'INCREMENT_COUNTER'
     })
-  }, "Increment")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Counter: ", state.counter, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "Increment")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "reduce-text-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), state.text, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "text: ", state.text), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     placeholder: "type text:",
     onChange: changeText
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
@@ -127,52 +171,17 @@ const Counter_Text_Reduce_useEffect = () => {
     })
   }, "erase text"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "reduce-num-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Num: ", state.num))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Num: ", state.num)));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Counter_Text_Reduce_useEffect);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CounterTextReduce);
 
 /***/ }),
 
-/***/ "./src/Counter_useState.jsx":
-/*!**********************************!*\
-  !*** ./src/Counter_useState.jsx ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// useState hook example with Counter
-
-
-const Counter_useState = () => {
-  const [counter, setCounter] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0); // create a state variable(first element) initiated as 0, second element is function to change state
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "counter-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Counter_useState"), counter, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "counter-button-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    className: "inc-button",
-    onClick: () => setCounter(prevC => prevC - 1)
-  }, "decrement"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    className: "inc-button",
-    onClick: () => setCounter(prevC => prevC + 1)
-  }, "increment")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Counter_useState);
-
-/***/ }),
-
-/***/ "./src/Text_useState_useRef.jsx":
-/*!**************************************!*\
-  !*** ./src/Text_useState_useRef.jsx ***!
-  \**************************************/
+/***/ "./src/Text.jsx":
+/*!**********************!*\
+  !*** ./src/Text.jsx ***!
+  \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -186,7 +195,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Text_useState_useRef = () => {
+const Text = () => {
   const {
     user
   } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_index_jsx__WEBPACK_IMPORTED_MODULE_1__.userContext);
@@ -204,7 +213,7 @@ const Text_useState_useRef = () => {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "text-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Text_useState_useRef "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, user), text, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Text"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "useState_useRef_useContext "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "user: ", user), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "text: ", text), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     ref: inputRef
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     onClick: submitAndClear
@@ -213,7 +222,7 @@ const Text_useState_useRef = () => {
   }, "clear text"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Text_useState_useRef);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Text);
 
 /***/ }),
 
@@ -238,7 +247,23 @@ const User = () => {
     user,
     setUser
   } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_index_jsx__WEBPACK_IMPORTED_MODULE_1__.userContext);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, user);
+  const userInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  const enterUser = () => {
+    if (userInputRef.current.value[1]) {
+      setUser(userInputRef.current.value);
+      userInputRef.current.value = '';
+    }
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "user-div"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "User"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "useState_useRef_useContex"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "user: ", user), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "text",
+    ref: userInputRef
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    onClick: enterUser
+  }, "enter"));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (User);
@@ -259,9 +284,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _User_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User.jsx */ "./src/User.jsx");
-/* harmony import */ var _Counter_useState_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Counter_useState.jsx */ "./src/Counter_useState.jsx");
-/* harmony import */ var _Text_useState_useRef_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Text_useState_useRef.jsx */ "./src/Text_useState_useRef.jsx");
-/* harmony import */ var _Counter_Text_Reduce_useEffect_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Counter_Text_Reduce_useEffect.jsx */ "./src/Counter_Text_Reduce_useEffect.jsx");
+/* harmony import */ var _Counter_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Counter.jsx */ "./src/Counter.jsx");
+/* harmony import */ var _Text_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Text.jsx */ "./src/Text.jsx");
+/* harmony import */ var _CounterTextReduce_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CounterTextReduce.jsx */ "./src/CounterTextReduce.jsx");
 
 
 
@@ -273,7 +298,7 @@ const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(docume
 const userContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);
 
 const App = () => {
-  const [user, setUser] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('oscar');
+  const [user, setUser] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "app-div"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(userContext.Provider, {
@@ -281,7 +306,7 @@ const App = () => {
       user,
       setUser
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_User_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Counter_useState_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Text_useState_useRef_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Counter_Text_Reduce_useEffect_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_User_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Counter_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Text_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_CounterTextReduce_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
 };
 
 root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(App, null));

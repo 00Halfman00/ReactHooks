@@ -15,6 +15,14 @@
   padding: 1rem;
 }
 
+.user-div {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: teal;
+}
+
 .counter-div {
   padding: 1rem;
   display: flex;
@@ -56,8 +64,20 @@
   width: 100%;
 }
 
-.counter-button-dvi {
+.counter-button-div {
   display: flex;
+}
+h3 {
+  font-family: cursive;
+  color: midnightblue;
+}
+h4, h5, p {
+  margin: .25rem;
+  color: midnightblue;
+}
+span {
+  font-family: fantasy;
+  color: cornsilk;
 }
 
 @media screen and (max-width: 600px) {

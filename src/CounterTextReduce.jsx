@@ -1,4 +1,5 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useContext } from 'react';
+import {userContext} from './index.jsx';
 
 let str = '';
 const reducer = (state, action) => {
@@ -52,7 +53,8 @@ const reducer = (state, action) => {
   }
 };
 
-const Counter_Text_Reduce_useEffect = () => {
+const CounterTextReduce = () => {
+  const {user} = useContext(userContext);
   const [state, dispatch] = useReducer(reducer, {
     counter: 0,
     num: 0,
@@ -78,7 +80,10 @@ const Counter_Text_Reduce_useEffect = () => {
 
   return (
     <div className="reduce-div">
-      <h4>Counter_Text_Reduce_useEffect</h4>
+      <h3>CounterTextReduce</h3>
+      <h4>useReducer_useEffect_useContext</h4>
+      <span>user: {user}</span>
+      Counter: {state.counter}
       <div className="reduce-button-div">
         <button onClick={() => dispatch({ type: 'DECREMENT_COUNTER' })}>
           Decrement
@@ -88,12 +93,8 @@ const Counter_Text_Reduce_useEffect = () => {
         </button>
       </div>
       <br></br>
-      Counter: {state.counter}
-      <br></br>
       <div className="reduce-text-div">
-        <br></br>
-        {state.text}
-        <br></br>
+        <p>text: {state.text}</p>
         <input placeholder="type text:" onChange={changeText} />
         <br></br>
         <button onClick={() => dispatch({ type: 'ERASE_TEXT' })}>
@@ -103,11 +104,11 @@ const Counter_Text_Reduce_useEffect = () => {
       </div>
       <div className='reduce-num-div'>
         <div>
-        <h3>Num: {state.num}</h3>
+        Num: {state.num}
         </div>
       </div>
     </div>
   );
 };
 
-export default Counter_Text_Reduce_useEffect;
+export default CounterTextReduce;

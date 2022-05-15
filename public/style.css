@@ -31,6 +31,14 @@
   background-color: goldenrod;
 }
 
+.counterJr-div {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color:darkgoldenrod;
+}
+
 .text-div {
   padding: 1rem;
   display: flex;
@@ -75,7 +83,7 @@ h4, h5, p {
   margin: .25rem;
   color: midnightblue;
 }
-span {
+span, p{
   font-family: fantasy;
   color: cornsilk;
 }

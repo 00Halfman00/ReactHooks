@@ -10,9 +10,9 @@ const Text = () => {
   const submitAndClear = () => {
     if (inputRef.current.value[1]) {
       setText(text + inputRef.current.value + ' ');
+      console.log('text: ', text);
       inputRef.current.value = '';
     }
-    console.log('text: ', text);
   };
   return (
     <div className="text-div">

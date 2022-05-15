@@ -1,31 +1,37 @@
-import React, { useState, useContext } from 'react';
-import {userContext} from './index.jsx';
+import React, { useState, useContext, useRef } from 'react';
+import { userContext } from './index.jsx';
+import CounterJr from './CounterJr.jsx';
 
 const Counter = () => {
-  const [counter, setCounter] = useState(0); // create a state variable(first element) initiated as 0, second element is function to change state
-  const {user} = useContext(userContext);
+  const [count, setCount] = useState(0); // create a state variable(first element) initiated as 0, second element is function to change state
+  const { user } = useContext(userContext);
+  const buttonRef = useRef(null);
+  const increment = () => {
+    buttonRef.current.increase();
+    setCount((prevV) => prevV + 1);
+  };
+  const decrement = () => {
+    buttonRef.current.decrease();
+    setCount(count - 1);
+  };
+
   return (
     <div className="counter-div">
       <h3>Counter</h3>
-      <h4>Counter_useState_useContext</h4>
+      <h4>useState_useContext_useRef</h4>
       <span>user: {user}</span>
-      {counter}
+      {count}
       <br></br>
       <div className="counter-button-div">
-        <button
-          className="inc-button"
-          onClick={() => setCounter((prevC) => prevC - 1)}
-        >
+        <button className="inc-button" onClick={decrement}>
           decrement
         </button>
-        <button
-          className="inc-button"
-          onClick={() => setCounter((prevC) => prevC + 1)}
-        >
+        <button className="inc-button" onClick={increment}>
           increment
         </button>
       </div>
       <br></br>
+      <CounterJr ref={buttonRef} />
     </div>
   );
 };

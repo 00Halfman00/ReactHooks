@@ -15,18 +15,79 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _index_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.jsx */ "./src/index.jsx");
+/* harmony import */ var _CounterJr_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CounterJr.jsx */ "./src/CounterJr.jsx");
+
 
 
 
 const Counter = () => {
-  const [counter, setCounter] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0); // create a state variable(first element) initiated as 0, second element is function to change state
+  const [count, setCount] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0); // create a state variable(first element) initiated as 0, second element is function to change state
 
   const {
     user
   } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_index_jsx__WEBPACK_IMPORTED_MODULE_1__.userContext);
+  const buttonRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  const increment = () => {
+    buttonRef.current.increase();
+    setCount(prevV => prevV + 1);
+  };
+
+  const decrement = () => {
+    buttonRef.current.decrease();
+    setCount(count - 1);
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "counter-div"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Counter"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Counter_useState_useContext"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "user: ", user), counter, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Counter"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "useState_useContext_useRef"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "user: ", user), count, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "counter-button-div"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "inc-button",
+    onClick: decrement
+  }, "decrement"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "inc-button",
+    onClick: increment
+  }, "increment")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_CounterJr_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    ref: buttonRef
+  }));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Counter);
+
+/***/ }),
+
+/***/ "./src/CounterJr.jsx":
+/*!***************************!*\
+  !*** ./src/CounterJr.jsx ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _index_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.jsx */ "./src/index.jsx");
+
+
+const CounterJr = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)((props, ref) => {
+  const {
+    user
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_index_jsx__WEBPACK_IMPORTED_MODULE_1__.userContext);
+  const [counter, setCounter] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle)(ref, () => ({
+    increase: () => {
+      setCounter(prevV => prevV + 1);
+    },
+    decrease: () => {
+      setCounter(prevV => prevV - 1);
+    }
+  }));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "counterJr-div"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "CounterJr"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "useState_UseImperativeHandle"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "useContext_forwardRef"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "user: ", user), counter, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "counter-button-div"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: "inc-button",
@@ -34,10 +95,9 @@ const Counter = () => {
   }, "decrement"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: "inc-button",
     onClick: () => setCounter(prevC => prevC + 1)
-  }, "increment")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Counter);
+  }, "increment")));
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CounterJr);
 
 /***/ }),
 
@@ -205,10 +265,9 @@ const Text = () => {
   const submitAndClear = () => {
     if (inputRef.current.value[1]) {
       setText(text + inputRef.current.value + ' ');
+      console.log('text: ', text);
       inputRef.current.value = '';
     }
-
-    console.log('text: ', text);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {

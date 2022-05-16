@@ -329,6 +329,61 @@ const User = () => {
 
 /***/ }),
 
+/***/ "./src/Users.jsx":
+/*!***********************!*\
+  !*** ./src/Users.jsx ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _index_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.jsx */ "./src/index.jsx");
+
+
+
+const Users = () => {
+  const {
+    user
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_index_jsx__WEBPACK_IMPORTED_MODULE_1__.userContext);
+  const [users, setUsers] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [flag, setFlag] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    users[users.length] = user; //console.log('users: ', users);
+
+    if (users.length > 5) setFlag(true);
+  }, [user]);
+
+  const findLongest = arr => {
+    let longest = '';
+
+    for (let i = 0; i < arr.length; ++i) {
+      if (arr[i].length > longest.length) {
+        longest = arr[i];
+      }
+    } //console.log('after for loop');
+
+
+    return longest;
+  };
+
+  const getLongestName = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    return findLongest(users); //console.log('in memo');
+  }, [flag]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "users-div"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Users"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "useState_useContext"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "useEffect_useMemo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "user: ", user), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "longest-name"
+  }, "longest name: ", getLongestName));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Users);
+
+/***/ }),
+
 /***/ "./src/index.jsx":
 /*!***********************!*\
   !*** ./src/index.jsx ***!
@@ -343,9 +398,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _User_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User.jsx */ "./src/User.jsx");
-/* harmony import */ var _Counter_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Counter.jsx */ "./src/Counter.jsx");
-/* harmony import */ var _Text_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Text.jsx */ "./src/Text.jsx");
-/* harmony import */ var _CounterTextReduce_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CounterTextReduce.jsx */ "./src/CounterTextReduce.jsx");
+/* harmony import */ var _Users_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Users.jsx */ "./src/Users.jsx");
+/* harmony import */ var _Counter_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Counter.jsx */ "./src/Counter.jsx");
+/* harmony import */ var _Text_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Text.jsx */ "./src/Text.jsx");
+/* harmony import */ var _CounterTextReduce_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CounterTextReduce.jsx */ "./src/CounterTextReduce.jsx");
+
 
 
 
@@ -365,7 +422,7 @@ const App = () => {
       user,
       setUser
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_User_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Counter_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Text_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_CounterTextReduce_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_User_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Users_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Counter_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Text_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_CounterTextReduce_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], null)));
 };
 
 root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(App, null));

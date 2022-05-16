@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import User from './User.jsx';
+import Users from './Users.jsx';
 import Counter from './Counter.jsx';
 import Text from './Text.jsx';
 import CounterTextReduce from './CounterTextReduce.jsx';
@@ -14,7 +15,8 @@ const App = () => {
   return (
     <div className="app-div">
       <userContext.Provider value={{ user, setUser }}>
-        <User/>
+        <User />
+        <Users />
         <Counter />
         <Text />
         <CounterTextReduce />
